@@ -2,11 +2,11 @@ from boards import *
 
 # to print the board
 def print_board(board):
-    for i in range(len(board)):
+    for i in range(9):
         if i % 3 == 0 and i != 0:
             print("- - - - - - - - - - - -")
 
-        for j in range(len(board[0])):
+        for j in range(9):
             if j % 3 == 0 and j != 0:
                 print(" | ", end="")
 
@@ -83,7 +83,7 @@ def solve(arr):
     return False
 
 
-if(solve(board_1)):
-    print_board(board_1)
+if(solve(board_2)):
+    print_board(board_2)
 else:
-    print ("No solution exists")
+    print ("Can't be solved.")
