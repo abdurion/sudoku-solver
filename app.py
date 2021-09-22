@@ -1,11 +1,20 @@
-
+from boards import *
 
 # to print the board
-def print_board(arr):
-    for i in range(9):
-        for j in range(9):
-            print(arr[i][j])
-        print('n')
+def print_board(board):
+    for i in range(len(board)):
+        if i % 3 == 0 and i != 0:
+            print("- - - - - - - - - - - -")
+
+        for j in range(len(board[0])):
+            if j % 3 == 0 and j != 0:
+                print(" | ", end="")
+
+            if j == 8:
+                print(board[i][j])
+            else:
+                print(str(board[i][j]) + " ", end="")
+
 
 # Find an empty cell
 def find_empty(arr, empty):
@@ -53,7 +62,7 @@ def is_valid(arr, row, col, num):
 def solve(arr):
     empty = [0,0]
     
-    if find_empty(arr, empty):
+    if not find_empty(arr, empty):
         return True
     
     row = empty[0]
@@ -73,24 +82,8 @@ def solve(arr):
     # Backtrack
     return False
 
-if __name__=="__main__":
-     
-    # creating a 2D array for the grid
-    grid =[[0 for x in range(9)]for y in range(9)]
-     
-    # assigning values to the grid
-    grid =[[3, 0, 6, 5, 0, 8, 4, 0, 0],
-          [5, 2, 0, 0, 0, 0, 0, 0, 0],
-          [0, 8, 7, 0, 0, 0, 0, 3, 1],
-          [0, 0, 3, 0, 1, 0, 0, 8, 0],
-          [9, 0, 0, 8, 6, 3, 0, 0, 5],
-          [0, 5, 0, 0, 9, 0, 6, 0, 0],
-          [1, 3, 0, 0, 0, 0, 2, 5, 0],
-          [0, 0, 0, 0, 0, 0, 0, 7, 4],
-          [0, 0, 5, 2, 0, 6, 3, 0, 0]]
-     
-    # if success print the grid
-    if(solve(grid)):
-        print_board(grid)
-    else:
-        print ("No solution exists")
+
+if(solve(board_1)):
+    print_board(board_1)
+else:
+    print ("No solution exists")
