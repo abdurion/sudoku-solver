@@ -1,3 +1,3 @@
 # sudoku-solver
 
-simple solver for sudoku using a backtrack algorithms.
+simple solver for sudoku using a backtrack recursively.
